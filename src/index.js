@@ -6,9 +6,9 @@ import {lang} from './lang/language.js';
 
 const client = {
     ws: new SocketClient(),
-    orderReference: createCanvas('placenl-userscript-order-reference'),
-    orderPriority: createCanvas('placenl-userscript-order-priority'),
-    placeReference: createCanvas('placenl-userscript-place-reference'),
+    orderReference: createCanvas('place-userscript-order-reference'),
+    orderPriority: createCanvas('place-userscript-order-priority'),
+    placeReference: createCanvas('place-userscript-place-reference'),
     canvasPlacer: new CanvasPlacer(),
     completion: undefined
 };
@@ -25,7 +25,7 @@ client.ws.connect(client);
     client.ws.enableCapability('place');
     client.canvasPlacer.startTimer(client);
 })();
-(typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACENL_USERSCRIPT_CLIENT = client;
+(typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACE_USERSCRIPT_CLIENT = client;
 
 function createCanvas(id) {
     const canvas = document.createElement('canvas');

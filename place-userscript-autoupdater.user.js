@@ -1,25 +1,25 @@
 // ==UserScript==
-// @name         PlaceNL Userscript (Autoupdater)
-// @namespace    https://github.com/PlaceNL/Userscript
+// @name         emhl Userscript (Autoupdater)
+// @namespace    https://github.com/emhlerscript
 // @version      0.0.2
 // @description  The easiest way to run our automated placer and keep it up to date, right from your browser
-// @author       PlaceNL
+// @author       forked from PlaceNL
 // @match        https://www.reddit.com/r/place/*
 // @match        https://new.reddit.com/r/place/*
 // @connect      reddit.com
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
-// @updateURL    https://github.com/PlaceNL/Userscript/releases/download/latest/placenl-userscript-autoupdater.user.js
-// @downloadURL  https://github.com/PlaceNL/Userscript/releases/download/latest/placenl-userscript-autoupdater.user.js
+// @updateURL    https://github.com/emhl/Userscript/releases/download/latest/place-userscript-autoupdater.user.js
+// @downloadURL  https://github.com/emhl/Userscript/releases/download/latest/place-userscript-autoupdater.user.js
 // @grant        GM.xmlHttpRequest
 // @connect      github.com
 // @connect      objects.githubusercontent.com
 // ==/UserScript==
 
-const SCRIPT_LOCATION = 'https://github.com/PlaceNL/Userscript/releases/download/latest/placenl-userscript.user.js';
+const SCRIPT_LOCATION = 'https://github.com/emhl/Userscript/releases/download/latest/place-userscript.user.js';
 const UPDATE_CHECK_INTERVAL = 10 * 60 * 1000;
 
 (function () {
-    (typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACENL_USERSCRIPT_AUTO_UPDATER = {
+    (typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACE_USERSCRIPT_AUTO_UPDATER = {
         version: '0.0.1',
         updateHook: () => {
         }
@@ -51,7 +51,7 @@ const UPDATE_CHECK_INTERVAL = 10 * 60 * 1000;
                         if (scriptData === newScriptData) return;
 
                         // Give the userscript some time to display its update message
-                        await (typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACENL_USERSCRIPT_AUTO_UPDATER.updateHook();
+                        await (typeof unsafeWindow !== 'undefined' ? unsafeWindow : window).PLACE_USERSCRIPT_AUTO_UPDATER.updateHook();
                         setTimeout(() => window.location.reload(), 5000);
                     }
                 });
